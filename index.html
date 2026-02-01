@@ -1,0 +1,36 @@
+<!Doctype html>
+<html>  
+    <head>
+        <title>calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+       <div class="frame">
+        <div class="screen" style="grid-area: screen;">
+            
+        </div>
+        <div class="container" style="grid-area: container;">
+            <div class="button " style="grid-area: button1;" onclick="clearscreen()">C</div>
+            <div class="button" style="grid-area: button2;" onclick="displaytoappend('+/-')">+/-</div>
+            <div class="button" style="grid-area: button3;" onclick="displaytoappend('%')">%</div>
+            <div class="button operator" style="grid-area: button4;" onclick="displaytoappend('/')">/</div>
+            <div class="button" style="grid-area: button5;" onclick="displaytoappend('7')">7</div>
+            <div class="button" style="grid-area: button6;" onclick="displaytoappend('8')">8</div>
+            <div class="button" style="grid-area: button7;" onclick="displaytoappend('9')">9</div>
+            <div class="button operator" style="grid-area: button8;" onclick="displaytoappend('*')">*</div>
+            <div class="button" style="grid-area: button9;" onclick="displaytoappend('4')">4</div>
+            <div class="button" style="grid-area: button10;" onclick="displaytoappend('5')">5</div>
+            <div class="button" style="grid-area: button11;" onclick="displaytoappend('6')">6</div>
+            <div class="button operator" style="grid-area: button12;" onclick="displaytoappend('-')">-</div>
+            <div class="button" style="grid-area: button13;" onclick="displaytoappend('1')">1</div>
+            <div class="button" style="grid-area: button14;" onclick="displaytoappend('2')">2</div>
+            <div class="button" style="grid-area: button15;" onclick="displaytoappend('3')">3</div>
+            <div class="button operator" style="grid-area: button16;" onclick="displaytoappend('+')">+</div>
+            <div class="button" style="grid-area: button17;" onclick="displaytoappend('0')">0</div>
+            <div class="button" style="grid-area: button18;" onclick="displaytoappend('.')">.</div>
+            <div class="button operator" style="grid-area: button19;" onclick="calculate()">=</div>
+            </div>
+        </div> 
+        <script src="script.js"></script>
+    </body>
+</html>
