@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: hsl(0, 0%, 5%);
+}
+.frame {
+    width: 80%;
+    height: 80%;
+    background-color: #ffffff;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: 
+    "screen"
+    "container";
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+}
+.screen {
+    grid-area: screen;
+    background-color: hsl(0, 0%, 8%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
+    height: 110%;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container {
+    grid-area: container;
+    width: 95%;
+    height: 98%;
+    background-color: hsl(0, 0%, 10%);
+    display: grid;
+    grid-template-areas: 
+        "button1 button2 button3 button4"
+        "button5 button6 button7 button8"
+        "button9 button10 button11 button12"
+        "button13 button14 button15 button16"
+        "button17 button17 button18 button19";
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    gap: 10px;
+}   
+.button {
+    width: 100%;
+    height: 100%;
+    background-color: hsl(0, 0%, 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
+}
+.button:hover {
+    background: #606060;
+}
+
+.button:active {
+    background: #404040;
+    transform: scale(0.95);
+}
+
+.operator {
+    background: #ff9500;
+}
+
+.operator:hover {
+    background: #ffb143;
+}
