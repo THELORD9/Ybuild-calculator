@@ -4,44 +4,155 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: hsl(0, 0%, 5%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
+
+header {
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    min-height: 40px;
+    width: 100%;
+    background-color: hsl(0, 0%, 30%);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .frame {
-    width: 80%;
-    height: 80%;
-    background-color: #ffffff;
+    width: 95%;
+    height: 90vh;
+    max-width: 500px;
+    background-color: hsl(0, 0%, 8%);
     overflow: hidden;
     display: grid;
     grid-template-areas: 
-    "screen"
-    "container";
+        "screen"
+        "container";
     grid-template-columns: 1fr;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: minmax(80px, 100px) 1fr;
     gap: 10px;
     justify-content: center;
     align-items: center;
     border: none;
     border-radius: 10px;
+    margin: 20px auto;
 }
+
+/* Small phones */
+@media screen and (max-width: 374px) {
+    .frame {
+        width: 98%;
+        height: 85vh;
+        grid-template-rows: minmax(60px, 80px) 1fr;
+        gap: 5px;
+    }
+    
+    .screen {
+        font-size: 24px !important;
+        padding: 10px !important;
+    }
+    
+    .container {
+        gap: 5px !important;
+        padding: 5px !important;
+    }
+    
+    .button {
+        font-size: 16px !important;
+    }
+}
+
+/* Phones in portrait */
+@media screen and (min-width: 375px) and (max-width: 599px) {
+    .frame {
+        width: 95%;
+        height: 88vh;
+    }
+    
+    .screen {
+        font-size: 28px;
+    }
+    
+    .button {
+        font-size: 18px;
+    }
+}
+
+/* Large phones and small tablets */
+@media screen and (min-width: 600px) and (max-width: 767px) {
+    .frame {
+        width: 70%;
+        max-width: 450px;
+        height: 85vh;
+    }
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .frame {
+        width: 60%;
+        max-width: 500px;
+        height: 80vh;
+    }
+}
+
+/* Desktops */
+@media screen and (min-width: 1024px) {
+    .frame {
+        width: 50%;
+        max-width: 500px;
+        height: 75vh;
+        min-height: 600px;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .frame {
+        height: 95vh;
+        width: 60%;
+        max-width: 600px;
+    }
+    
+    .screen {
+        grid-template-rows: minmax(50px, 70px) 1fr;
+    }
+    
+    header {
+        height: 2vh;
+        min-height: 30px;
+    }
+}
+
 .screen {
     grid-area: screen;
     background-color: hsl(0, 0%, 8%);
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    font-size: 30px;
+    font-size: clamp(24px, 5vw, 36px);
     font-weight: 800;
-    color: white;
-    height: 110%;
+    color: hwb(0 100% 0%);
+    height: 100%;
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
 .container {
     grid-area: container;
-    width: 95%;
-    height: 98%;
+    width: 100%;
+    height: 100%;
     background-color: hsl(0, 0%, 10%);
     display: grid;
     grid-template-areas: 
@@ -51,11 +162,14 @@ body {
         "button13 button14 button15 button16"
         "button17 button17 button18 button19";
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     justify-content: center;
     align-items: center;
-    padding:10px;
-    gap: 10px;
-}   
+    padding: 10px;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
 .button {
     width: 100%;
     height: 100%;
@@ -65,11 +179,16 @@ body {
     align-items: center;
     border: 1px solid black;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: clamp(16px, 3vw, 22px);
     font-weight: 800;
     color: white;
     cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 50px;
 }
+
 .button:hover {
     background: #606060;
 }
@@ -85,4 +204,46 @@ body {
 
 .operator:hover {
     background: #ffb143;
+}
+
+.operator:active {
+    background: #e08500;
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .button {
+        min-height: 55px;
+    }
+    
+    .button:active {
+        transform: scale(0.92);
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .button {
+        border-width: 0.5px;
+    }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: hsl(0, 0%, 2%);
+    }
+}
+
+/* Print styles */
+@media print {
+    header {
+        display: none;
+    }
+    
+    .frame {
+        width: 100%;
+        height: auto;
+        border: 1px solid #000;
+    }
 }
